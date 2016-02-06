@@ -28,6 +28,7 @@ public class PermutationStringDemo {
                 swap(S, left, i);
                 permute(S, left+1, right);
                 swap(S, left, i);  // backtrack
+                swap(S, left, i);  // backtrack
             }
         }
     }
