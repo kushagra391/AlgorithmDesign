@@ -12,7 +12,7 @@ public class ReverseListDemo {
     }
 
 
-    private static ListNode reverse(ListNode head) {
+    public static ListNode reverse(ListNode head) {
 
         if (head == null) return null;      // size = 0
         if (head.next == null) return head; // size == 1
