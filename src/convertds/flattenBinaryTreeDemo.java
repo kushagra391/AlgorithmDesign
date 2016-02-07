@@ -27,6 +27,7 @@ public class flattenBinaryTreeDemo {
 
     // trying out a recursive solution approach
     // try a iterative approach instead
+    // again
     private static TreeNode flattenBinaryTree(TreeNode root) {
 
         if (root == null) return null;
