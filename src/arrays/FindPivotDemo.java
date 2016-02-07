@@ -8,4 +8,8 @@ public class FindPivotDemo {
         System.out.println(findPivot(A));
 
     }
+
+    private static int findPivot(int[] A) {
+        return 0;
+    }
 }
