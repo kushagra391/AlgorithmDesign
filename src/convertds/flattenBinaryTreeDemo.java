@@ -16,24 +16,34 @@ public class flattenBinaryTreeDemo {
 
     }
 
-    private static void printAllPaths(TreeNode root) {
-        if (root == null) return;
+    private static List<List<TreeNode>> printAllPaths(TreeNode root) {
+        List<List<TreeNode>> paths = new ArrayList<>();
+        
+        if (root == null) return paths;
 
         List<TreeNode> path = new ArrayList<>();
 
-        printAllPathsHelper(root, path);
+        printAllPathsHelper(root, path, paths);
+
+        return paths;
     }
 
-    private static void printAllPathsHelper(TreeNode root, List<TreeNode> path) {
+    private static void printAllPathsHelper(TreeNode root, List<TreeNode> path, List<List<TreeNode>> paths) {
 
         if (root == null) return;
+
         path.add(root);
         if (isLeaf(root)) {
-            System.out.println(path.toString());
+            List<TreeNode> pathCopy = new ArrayList<>();
+            for (TreeNode x : path) {
+               pathCopy.add(x);
+            }
+            paths.add(pathCopy);
+            // System.out.println(path.toString());
         }
 
-        printAllPathsHelper(root.left, path);
-        printAllPathsHelper(root.right, path);
+        printAllPathsHelper(root.left, path, paths);
+        printAllPathsHelper(root.right, path, paths);
 
         // backtrack -- important step
         path.remove(root);
