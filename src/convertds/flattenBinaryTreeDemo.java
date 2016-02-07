@@ -1,15 +1,47 @@
 package convertds;/* Authored by Kushagra on 2/7/2016. */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class flattenBinaryTreeDemo {
     public static void main(String[] args) {
 
         TreeNode root = new TreeNode(1);
         createDemoTree(root);
+        printAllPaths(root);
+
 //        printTree(root);
+//        root = flattenBinaryTree(root);
+//        printFlattenedTree(root);
 
-        root = flattenBinaryTree(root);
+    }
 
-        printFlattenedTree(root);
+    private static void printAllPaths(TreeNode root) {
+        if (root == null) return;
+
+        List<TreeNode> path = new ArrayList<>();
+
+        printAllPathsHelper(root, path);
+    }
+
+    private static void printAllPathsHelper(TreeNode root, List<TreeNode> path) {
+
+        if (root == null) return;
+        path.add(root);
+        if (isLeaf(root)) {
+            System.out.println(path.toString());
+        }
+
+        printAllPathsHelper(root.left, path);
+        printAllPathsHelper(root.right, path);
+
+        // backtrack -- important step
+        path.remove(root);
+    }
+
+    private static boolean isLeaf(TreeNode root) {
+
+        return (root.left == null && root.right == null);
 
     }
 
@@ -26,8 +58,6 @@ public class flattenBinaryTreeDemo {
     }
 
     // trying out a recursive solution approach
-    // try a iterative approach instead
-    // again
     private static TreeNode flattenBinaryTree(TreeNode root) {
 
         if (root == null) return null;
@@ -74,6 +104,11 @@ public class flattenBinaryTreeDemo {
             this.key = key;
             this.left = null;
             this.right = null;
+        }
+
+        @Override
+        public String toString() {
+            return this.key + "";
         }
     }
 }
