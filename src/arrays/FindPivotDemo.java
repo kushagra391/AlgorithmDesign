@@ -1,7 +1,11 @@
 package arrays;/* Authored by Kushagra on 2/7/2016. */
 
-public class FindPivot {
+public class FindPivotDemo {
     public static void main(String[] args) {
-        
+
+        int[] A = {};
+
+        System.out.println(findPivot(A));
+
     }
 }
