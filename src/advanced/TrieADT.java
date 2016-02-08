@@ -22,7 +22,7 @@ public class TrieADT {
 
         public boolean searchWord(String word) {
 
-
+            return false;
         }
 
         public void deleteWord(String word) {
