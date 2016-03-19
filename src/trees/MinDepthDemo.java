@@ -24,7 +24,6 @@ public class MinDepthDemo {
             return;
         }
 
-        depth.minDepth = depth.minDepth + 1;
         minDepthHelper(root.left, height + 1, depth);
         minDepthHelper(root.right, height + 1, depth);
     }
@@ -39,6 +38,5 @@ public class MinDepthDemo {
         Depth(int height) {
             this.minDepth = height;
         }
-
     }
 }
